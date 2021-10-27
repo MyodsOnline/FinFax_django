@@ -1,0 +1,137 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinFax</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'script.js' %}" defer></script>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>FinFax@castom</h1>
+        <form method="post" class="form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <label for="{{ form.number.id_for_label }}" class="label">Номер:*</label>{{ form.number }}<br>
+            </div>
+            <div class="row">
+                <label for="{{ form.date.id_for_label }}" class="label">Дата:*</label>{{ form.date }}<br>
+            </div>
+            <div class="row">
+                <label for="{{ form.time.id_for_label }}" class="label">Время:*</label>{{ form.time }}<br>
+            </div>
+            <div class="row">
+                <label for="{{ form.text.id_for_label }}" class="label_xl">Текст:</label>{{ form.text }}<br>
+            </div>
+            <div class="row">
+                <label for="{{ form.author.id_for_label }}" class="label_xl">Автор:*</label>{{ form.author }}<br>
+            </div>
+            <div class="row">
+                <label for="{{ form.file.id_for_label }}" class="label_xl">Файл:</label>{{ form.file }}<br>
+            </div>
+            <input type="submit" value="Сохранить и отправить" class="button">
+            <div class="row">
+                <div id="send_to"><p>Отправка на адрес:</p><a href="mailto:vo@fingrid.fi">vo@fingrid.fi</a><p>(изменить)</p></div>
+            </div>
+        </form>
+        <div class="row space_around">
+            <p id="docs">Документы</p>
+            <p id="orders">Часто используемые команды</p>
+        </div>
+        <div id="docs_active" class="row hidden">
+            <ul class="list">
+                <li class="title"><a href={% url 'index' %}><img src="{% static 'docs.svg' %} " alt="docs_ico" class="line_p">Соглашение о Трансграничной торговле</a></li>
+                <li class="title"><a href="index.html"><img src="{% static 'docs.svg' %} " alt="docs_ico" class="line_p">Кодово-тематический разговорник</a></li>
+                <li class="title"><a href={% url 'orders' %}><img src="{% static 'docs.svg' %} " alt="docs_ico" class="line_p">Послендние распряжения</a></li>
+            </ul>
+        </div>
+        <div id="orders_active" class="hidden row">
+            <h3>Команды из типовых программ переключений</h3>
+            <h4 class="title"><img src="{% static 'docs.svg' %} " alt="docs_ico">ТПП №45 по переводу Блока 1 из РФ в Fingrid</h4>
+            <ul class="list hidden">
+                <li class="list_itm title"><span class="line_p">36.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 435</span><span class="fin">D354 E456</span></li>
+                <li class="list_itm title"><span class="line_p">36.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 435</span><span class="fin">D354 E456</span></li>
+                <li class="list_itm title"><span class="line_p">36.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 435</span><span class="fin">D354 E456</span></li>
+            </ul>
+            <h4 class="title"><img src="{% static 'docs.svg' %} " alt="docs_ico">ТПП №45 по переводу Блока 1 из РФ в Fingrid</h4>
+            <ul class="list hidden">
+                <li class="list_itm title"><span class="line_p">36.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 435</span><span class="fin">D354 E456</span></li>
+                <li class="list_itm title"><span class="line_p">36.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 435</span><span class="fin">D354 E456</span></li>
+                <li class="list_itm title"><span class="line_p">36.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 435</span><span class="fin">D354 E456</span></li>
+            </ul>
+            <h4 class="title"><img src="{% static 'docs.svg' %} " alt="docs_ico">ТПП №45 по переводу Блока 1 из РФ в Fingrid</h4>
+            <ul class="list hidden">
+                <li class="list_itm title"><span class="line_p">36.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 435</span><span class="fin">D354 E456</span></li>
+                <li class="list_itm title"><span class="line_p">36.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 435</span><span class="fin">D354 E456</span></li>
+                <li class="list_itm title"><span class="line_p">36.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 43536.1 Выполнить операции с выключателем В 435</span><span class="fin">D354 E456</span></li>
+            </ul>
+            <h3>Прочие команды из разговорника</h3>
+            <h4 class="title">Объекты и оборудование</h4>
+            <ul class="list hidden">
+                <li class="list_itm grab"><span class="">КВПУ 1</span><span class="fin">M1</span></li>
+                <li class="list_itm grab"><span class="">КВПУ 2</span><span class="fin">M2</span></li>
+                <li class="list_itm grab"><span class="">КВПУ 3</span><span class="fin">M3</span></li>
+                <li class="list_itm grab"><span class="">КВПУ 4</span><span class="fin">M4</span></li>
+                <li class="list_itm grab"><span class="">ПС 440кВ Выборгская</span><span class="fin">D354</span></li>
+            </ul>
+            <h4 class="title">События</h4>
+            <ul class="list hidden">
+                <li class="list_itm grab"><span class="">КВПУ 1</span><span class="fin">D354 E456 </span></li>
+                <li class="list_itm grab"><span class="">КВПУ 2</span><span class="fin">D354 E456 </span></li>
+                <li class="list_itm grab"><span class="">КВПУ 3</span><span class="fin">D354 E456 </span></li>
+                <li class="list_itm grab"><span class="">КВПУ 4</span><span class="fin">D354 E456 </span></li>
+            </ul>
+            <h4 class="title">Служебные символы</h4>
+            <ul class="list">
+                <li class="list_itm grab"><span class="fin">!</span></li>
+                <li class="list_itm grab"><span class="fin">:</span></li>
+                <li class="list_itm grab"><span class="fin">_</span></li>
+                <li class="list_itm grab"><span class="fin">№</span></li>
+                <li class="list_itm grab"><span class="fin">—</span></li>
+            </ul>
+        </div>
+        <table>
+            <caption>Отправленные сообщения</caption>
+            <thead>
+                <tr>
+                    <th>Номер</th>
+                    <th>Дата</th>
+                    <th>Время</th>
+                    <th class="bis">Текст</th>
+                    <th>Файл</th>
+                    <th>Автор</th>
+                </tr>
+            </thead>
+            {% if emails %}
+                <tbody>
+                    {% for el in emails|dictsortreversed:'number' %}
+                        <tr>
+                            <td>{{ el.number }}</td>
+                            <td>{{ el.date|date:'d.m.y' }}</td>
+                            <td>{{ el.time|date:'H:i' }}</td>
+                            <td class="bis">{{ el.text }}</td>
+                            <td><a href="{{ el.file }}" target="_blank">{{ el.file }}</a></td>
+                            <td>{{ el.author }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            {% else %}
+                <tbody>
+                    <tr>
+                        <td> — </td>
+                        <td> — </td>
+                        <td> — </td>
+                        <td class="bis"> — </td>
+                        <td> — </td>
+                        <td> — </td>
+                    </tr>
+                </tbody>
+            {% endif %}
+        </table>
+    </div>
+</body>
+</html>
