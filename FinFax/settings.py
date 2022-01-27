@@ -86,8 +86,8 @@ WSGI_APPLICATION = 'FinFax.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': 'myproject',
-        'USER': 'myprojectuser',
+        'NAME': 'postgress',
+        'USER': 'postgress',
         # 'PASSWORD': 'password',
         # 'HOST': 'localhost',
         # 'PORT': '',
