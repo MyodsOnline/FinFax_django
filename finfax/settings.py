@@ -86,8 +86,8 @@ WSGI_APPLICATION = 'finfax.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgress',
-        'USER': 'postgress',
+        'NAME': 'postgres',
+        'USER': 'postgres',
         # 'PASSWORD': 'password',
         # 'HOST': 'localhost',
         # 'PORT': '',
